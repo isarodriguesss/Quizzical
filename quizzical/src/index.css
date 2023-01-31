@@ -50,7 +50,7 @@
   text-align: left;
 }
 
-.question-options-selected{
+.answer-selected{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -71,7 +71,7 @@
   text-align: left;
 }
 
-.question-options {
+.answer {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -84,6 +84,7 @@
   border-radius: 12px;
   padding: 7px;
   min-width: 80px;
+  background-color: #F5F7FB;
 }
 
 .question-options-container {

@@ -4,19 +4,39 @@ import he from 'he'
 
 
 export default function(props) {
-  const [results, setResults] = useState([props.answers])
+  const [results, setResults] = useState(props.answers)
   const [currentAnswer, setCurrentAnswer] = useState()
 
-  console.log(results)
+  //console.log(results)
 
-  const resultElements = results.map(item => 
-    {console.log(item.value)}
-    /* {<p key={index} className={`question-options${index == currentAnswer ? "-selected" : ""}`} onClick={() => setCurrentAnswer(index)}>{he.decode(item.value)} </p>} */
-  )
+  function handleClick(answer) {
+    if (props.correct) {
+      return 
+    }
+    props.handleClickAnswer(props.id, answer)
+  }
+
+  const resultElements = results.map(item => {
+    let id = null
+    if (props.question.checked) {
+      if (props.correct === item) {
+        id = "correct"
+      }
+      else if (props.question.selected === item) {
+        id = "incorrect"
+      }
+      else {
+        id = "not-selected"
+      }
+    }
+    return (
+      <button key={nanoid()} id={id} className={item === props.question.selected ? "answer-selected" : "answer"} onClick={() => handleClick(item)}>{item}</button>
+    )
+  })
 
   return (
     <div className='question-container'>
-      <h1 className='question-title'>{he.decode(props.question)}</h1>
+      <h1 className='question-title'>{he.decode(props.question.question)}</h1>
       <div className='question-options-container'>
         {resultElements}
       </div>
