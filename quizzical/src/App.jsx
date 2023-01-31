@@ -7,7 +7,8 @@ export default function App() {
   const [questions, setQuestions] = useState([])
   const [started, setStarted] = useState(false)
   const [count, setCount] = useState(0)
-  const [currentAnswer, setCurrentAnswer] = useState()
+  const [correct, setCorrect] = useState(0)
+  const [checked, setChecked] = useState(false)
 
   const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5)
 
@@ -42,8 +43,6 @@ export default function App() {
     }))
   }
 
-  //console.log(questions)
-
   const questionsElements = questions ? questions.map(question => (
     <Question 
       key={question.id}
@@ -58,7 +57,32 @@ export default function App() {
   )) : []
 
   function checkAnswers() {
+    let selected = true
+    questions.forEach(question => {
+      if (question.selected === null) {
+        selected = false
+        return
+      }
+    })
+    if (!selected) {
+      return
+    }
+    setQuestions(questions => questions.map(question => {
+      return {...question, checked: true}
+    }))
+    setChecked(true)
+    let correct = 0
+    questions.forEach(question => {
+      if (question.correct === question.selected) {
+        correct += 1
+      }
+    })
+    setCorrect(correct)
+  }
 
+  function handlePlayAgain() {
+    setCount(count => count + 1)
+    setChecked(false)
   }
 
   return (
@@ -67,7 +91,14 @@ export default function App() {
       started ?
       <div>
         {questionsElements}
-        <button className='check-answers' onClick={checkAnswers}>Check answers</button>
+        {
+          checked ?
+          <div className='result-container'>
+            <p className='result-text'>You scored {correct}/{questions.length} correct answers</p>
+            <button className='btn-playAgain' onClick={handlePlayAgain}>Play again</button>
+          </div> :
+          <button className='check-answers' onClick={checkAnswers}>Check answers</button>
+        }
       </div> : 
       <div className='no-notes'>
         <h1 className='no-notes-title'>Quizzical</h1>

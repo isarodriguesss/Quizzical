@@ -19,7 +19,7 @@ export default function(props) {
   const resultElements = results.map(item => {
     let id = null
     if (props.question.checked) {
-      if (props.correct === item) {
+      if (props.question.correct === item) {
         id = "correct"
       }
       else if (props.question.selected === item) {
@@ -30,7 +30,7 @@ export default function(props) {
       }
     }
     return (
-      <button key={nanoid()} id={id} className={item === props.question.selected ? "answer-selected" : "answer"} onClick={() => handleClick(item)}>{item}</button>
+      <button key={nanoid()} id={id} className={item === props.question.selected ? "answer-selected" : "answer"} onClick={() => handleClick(item)}>{he.decode(item)}</button>
     )
   })
 

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Inter:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Karla:wght@700&display=swap');
+
 
 :root {
   
@@ -112,6 +112,50 @@
   text-align: center;
 }
 
+#correct {
+  background-color: #94D7A2;
+  border: 2px solid #94D7A2;
+}
+
+#incorrect {
+  background-color: #F8BCBC;
+  border: 2px solid #F8BCBC;
+  opacity: 0.5;
+}
+
+#not-selected {
+  opacity: 0.5;
+}
+
+.btn-playAgain {
+  width: 104px;
+  height: 40px;
+  background: #4D5B9E;
+  border-radius: 10px;
+  border: none;
+  color: #F5F7FB;
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 15px;
+  line-height: 12px;
+  text-align: center;
+}
+
+.result-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 15px;
+  text-align: center;
+  color: #293264;
+  margin-right: 25px;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+}
 
 body {
   margin: 0;
