@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {nanoid} from "nanoid"
 import he from 'he'
 
@@ -40,7 +40,7 @@ export default function(props) {
       <div className='question-options-container'>
         {resultElements}
       </div>
-      <div className='line'>_____________________________________________________________________________________________________________________________</div>
+      <div className='line'></div>
     </div>
   )
 }

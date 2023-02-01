@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {nanoid} from "nanoid"
 import './App.css'
 import Question from './Question'
+import blob1 from './assets/blob1.svg'
 
 export default function App() {
   const [questions, setQuestions] = useState([])
@@ -48,7 +49,6 @@ export default function App() {
       key={question.id}
       question={question}
       answers={question.answers}
-      correct_answer={question.correct}
       id={question.id}
       handleClickAnswer={handleClickAnswer}
 
@@ -106,6 +106,9 @@ export default function App() {
         <button className='no-notes-btn' onClick={start}>Start quiz</button>
       </div>
       }
+      <div className='blob1'>
+        <img className='left' src={blob1} alt="" />
+      </div>
     </main>
     
   )
