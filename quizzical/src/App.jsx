@@ -15,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     async function getQuestion() {
-      const res = await fetch("https://opentdb.com/api.php?amount=10")
+      const res = await fetch("https://opentdb.com/api.php?amount=5")
       const data = await res.json()
       let q = []
       data.results.forEach(question => {
@@ -86,7 +86,7 @@ export default function App() {
   }
 
   return (
-    <main>
+    <main className='main-container'>
       {
       started ?
       <div>

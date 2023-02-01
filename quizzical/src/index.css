@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Karla:wght@700&display=swap');
 
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
 
 :root {
   
@@ -25,12 +29,20 @@
 }
 
 @keyframes move1 {
-  0%   { transform: scale(1)   translate(-60px, -50px); }
-  38%  { transform: scale(0.8) translate(60vw, 30vh) rotate(160deg); }
-  40%  { transform: scale(0.8) translate(60vw, 30vh) rotate(160deg); }
-  78%  { transform: scale(1.5) translate(0vw, 50vh) rotate(-20deg); }
-  80%  { transform: scale(1.5) translate(0vw, 50vh) rotate(-20deg); }
-  100% { transform: scale(1)   translate(-60px, -50px); }
+  0%   { transform: scale(1)   translate(-60px, -100px); }
+  38%  { transform: scale(0.8) translate(90vw, 30vh) rotate(160deg); }
+  40%  { transform: scale(0.8) translate(90vw, 30vh) rotate(160deg); }
+  78%  { transform: scale(1.5) translate(-20vw, 50vh) rotate(-20deg); }
+  80%  { transform: scale(1.5) translate(-20vw, 50vh) rotate(-20deg); }
+  100% { transform: scale(1)   translate(-60px, -100px); }
+}
+
+.no-notes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
 }
 
 .no-notes-title {
@@ -186,6 +198,6 @@ body {
   min-height: 100vh;
   background-color: #F5F7FB;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
